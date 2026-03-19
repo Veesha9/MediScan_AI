@@ -1,0 +1,116 @@
+/* ============================================================
+   MediScan AI — Auth Pages Stylesheet (Login & Signup)
+   File: css/auth.css
+   ============================================================ */
+
+/* ── AUTH WRAPPER ── */
+.auth-wrap {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 80px 1.5rem 2rem;
+}
+
+/* ── AUTH CARD ── */
+.auth-card {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(20px);
+  border-radius: 24px;
+  padding: 2.5rem;
+  width: 100%;
+  max-width: 440px;
+  border: 1px solid rgba(13, 148, 136, 0.15);
+  box-shadow: var(--shadow);
+  animation: fadeUp 0.5s ease both;
+}
+
+/* ── LOGO / HEADER INSIDE CARD ── */
+.auth-logo {
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.auth-logo .cross {
+  font-size: 2.5rem;
+  display: block;
+}
+
+.auth-logo h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  color: var(--teal-dark);
+}
+
+.auth-logo p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-top: 4px;
+}
+
+/* ── FORM FIELDS ── */
+.form-group {
+  margin-bottom: 1.1rem;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1.5px solid #d1fae5;
+  border-radius: 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.95rem;
+  background: #f9fffe;
+  color: var(--text);
+  transition: border 0.2s;
+  outline: none;
+}
+
+.form-group input:focus {
+  border-color: var(--teal);
+  background: white;
+}
+
+/* ── TWO COLUMN ROW ── */
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+/* ── SWITCH LINK ── */
+.auth-switch {
+  text-align: center;
+  margin-top: 1.2rem;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.auth-switch a {
+  color: var(--teal);
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.auth-switch a:hover {
+  text-decoration: underline;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .auth-card {
+    padding: 1.8rem 1.3rem;
+  }
+}

@@ -1,0 +1,172 @@
+/* ============================================================
+   MediScan AI — X-Ray Analyzer Styles
+   File: css/xray.css
+   ============================================================ */
+
+/* ── X-RAY UPLOAD ZONE ── */
+.xray-upload-zone {
+  border: 2px dashed #93c5fd;
+  border-radius: 12px;
+  padding: 2rem;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.2s;
+  background: #eff6ff;
+  position: relative;
+}
+
+.xray-upload-zone:hover {
+  border-color: #3b82f6;
+  background: #dbeafe;
+}
+
+.xray-upload-zone input[type="file"] {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.xray-upload-zone strong {
+  color: #2563eb;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.xray-upload-zone p {
+  color: #64748b;
+  font-size: 0.9rem;
+}
+
+/* ── X-RAY CARD HEADER COLOR ── */
+.xray-card h3 {
+  border-bottom-color: #bfdbfe !important;
+}
+
+/* ── X-RAY RESULT TABLE ── */
+.xray-result {
+  margin-top: 1rem;
+  display: none;
+}
+
+.xray-result h4 {
+  font-weight: 700;
+  color: #1e3a5f;
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+}
+
+.xray-row {
+  display: grid;
+  grid-template-columns: 1.6fr 3fr auto;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 8px 0;
+  border-bottom: 1px solid #eff6ff;
+  font-size: 0.86rem;
+}
+
+.xray-row:last-child {
+  border-bottom: none;
+}
+
+.xray-region {
+  font-weight: 600;
+  color: #1e3a5f;
+}
+
+.xray-finding {
+  color: #334155;
+  line-height: 1.4;
+}
+
+.xray-finding.abnormal {
+  color: #b91c1c;
+  font-weight: 500;
+}
+
+.xray-finding.normal {
+  color: #166534;
+}
+
+/* ── X-RAY IMPRESSION BOX ── */
+.xray-impression {
+  border-radius: 12px;
+  padding: 1rem 1.2rem;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  margin-top: 1rem;
+  border-left: 4px solid;
+}
+
+.xray-impression.normal {
+  background: #f0fdf4;
+  border-color: #86efac;
+  color: #166534;
+}
+
+.xray-impression.abnormal {
+  background: #fff5f5;
+  border-color: #fca5a5;
+  color: #991b1b;
+}
+
+/* ── TABS FOR X-RAY CARD ── */
+.xray-tab-bar {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.xray-tab {
+  padding: 8px 18px;
+  border-radius: 50px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: 1.5px solid #bfdbfe;
+  background: white;
+  color: #64748b;
+  transition: all 0.2s;
+}
+
+.xray-tab.active {
+  background: #2563eb;
+  color: white;
+  border-color: #2563eb;
+}
+
+/* ── DOCTOR BOX (shared, already in dashboard.css) ── */
+/* doctor-box styles already exist — no duplication needed */
+
+/* ── FULL WIDTH CARD ── */
+.dash-grid-full {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+/* ── SCAN TYPE BADGE ── */
+.scan-type-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: #dbeafe;
+  color: #1e40af;
+  border-radius: 50px;
+  padding: 4px 12px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 768px) {
+  .xray-row {
+    grid-template-columns: 1fr;
+    gap: 2px;
+    padding: 10px 0;
+  }
+}
