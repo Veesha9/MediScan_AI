@@ -127,7 +127,7 @@ Shows analysis results dynamically
 <img width="573" height="546" alt="image" src="https://github.com/user-attachments/assets/c0ecfa93-d076-46b2-9fb1-ed334895f0fa" />
 <img width="593" height="545" alt="image" src="https://github.com/user-attachments/assets/4a7fad6d-cf98-4005-a8c2-8df591248bfd" />
 <img width="582" height="510" alt="image" src="https://github.com/user-attachments/assets/b706a3e8-5a75-40a7-b8da-f746151b79af" />
-### IN BLOOD_REPORT_ANALYZER if X-RAY REPORTS ARE UPLOADED
+###  IN BLOOD_REPORT_ANALYZER if X-RAY REPORTS ARE UPLOADED
 <img width="557" height="543" alt="image" src="https://github.com/user-attachments/assets/c03f1fb1-5cff-4220-b955-0285b040904b" />
 
 ### XRAY REPORT_NORMAL
@@ -137,7 +137,7 @@ Shows analysis results dynamically
 <img width="1051" height="443" alt="image" src="https://github.com/user-attachments/assets/971fd7e3-8eb4-4f6a-95dc-0c49ea60af13" />
 <img width="1046" height="483" alt="image" src="https://github.com/user-attachments/assets/e8027d40-b629-49fe-9a85-6b5c0f53d114" />
 <img width="1054" height="536" alt="image" src="https://github.com/user-attachments/assets/baad78cc-f2fe-4d69-946e-5c933c475799" />
-### IN XRAY_REPORT_ANALYZER if BLOOD REPORTS ARE UPLOADED
+###  IN XRAY_REPORT_ANALYZER if BLOOD REPORTS ARE UPLOADED
 <img width="1042" height="508" alt="image" src="https://github.com/user-attachments/assets/7ba14c37-afe3-4a60-a2e8-ed48a25c10a9" />
 
 # Includes warnings and disclaimers
