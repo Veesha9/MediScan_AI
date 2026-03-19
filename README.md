@@ -162,3 +162,7 @@ Mobile app version
 
 (https://github.com/Veesha9)
 
+# ⭐ Support
+
+If you like this project, give it a ⭐ on GitHub!
+
