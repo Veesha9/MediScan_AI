@@ -47,7 +47,7 @@ Interactive UI with multiple cards
 
 Displays results dynamically
 
-# 🔒 Privacy & Security
+## 🔒 Privacy & Security
 
 Data processed locally in browser
 
