@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<!--
+  ============================================================
+  MediScan AI — Smart Health Assistant
+  File: index.html
+
+  PROJECT STRUCTURE:
+  ├── index.html
+  ├── css/
+  │   ├── style.css
+  │   ├── home.css
+  │   ├── auth.css
+  │   ├── dashboard.css
+  │   └── xray.css          ← NEW
+  └── js/
+      ├── navigation.js
+      ├── auth.js
+      ├── bloodreport.js
+      ├── remedies.js
+      ├── symptoms.js
+      └── xray.js           ← NEW
+  ============================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MediScan AI – Smart Health Assistant</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+  <!-- CSS Files -->
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+  <link rel="stylesheet" href="css/auth.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/xray.css">
+</head>
+<body>
+
+  <!-- BACKGROUND -->
+  <div class="bg-layer"></div>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- ═══════════════════════════════════════
+       NAVIGATION BAR
+  ════════════════════════════════════════ -->
+  <nav>
+    <div class="nav-brand">
+      <span class="cross">✚</span>
+      MediScan AI
+    </div>
+    <div class="nav-links">
+      <button class="nav-btn ghost" id="nav-login"  onclick="showPage('login')">Log In</button>
+      <button class="nav-btn solid" id="nav-signup" onclick="showPage('signup')">Sign Up</button>
+      <button class="nav-btn ghost" id="nav-logout" style="display:none;" onclick="logout()">Log Out</button>
+    </div>
+  </nav>
+
+
+  <!-- ═══════════════════════════════════════
+       PAGE 1: HOME
+  ════════════════════════════════════════ -->
+  <div class="page active" id="page-home">
+    <div id="home-inner">
+
+      <div class="hero-badge">🤖 AI-Powered Health Analysis</div>
+
+      <h1 class="hero-title">
+        Your Personal<br>
+        <span>Medical AI</span> Assistant
+      </h1>
+
+      <p class="hero-sub">
+        Upload blood reports, analyze X-ray scans, check symptoms — and get
+        intelligent home remedy suggestions powered by AI.
+      </p>
+
+      <div class="hero-cta">
+        <button class="btn-primary"   onclick="showPage('signup')">Get Started Free →</button>
+        <button class="btn-secondary" onclick="showPage('login')">Already a Member?</button>
+      </div>
+
+      <div class="feature-cards">
+        <div class="feature-card">
+          <div class="feature-icon">🩸</div>
+          <h3>Blood Report Analysis</h3>
+          <p>Upload CBC, LFT, KFT reports. AI highlights abnormal parameters instantly.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🫁</div>
+          <h3>X-Ray Scan Analyzer</h3>
+          <p>Upload chest X-ray, CT, or MRI reports. AI reads findings region by region.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🩺</div>
+          <h3>Symptom Checker</h3>
+          <p>Select your symptoms and receive tailored home remedy suggestions.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔒</div>
+          <h3>Private & Secure</h3>
+          <p>Your health data stays private. Processing done locally in your browser.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       PAGE 2: SIGN UP
+  ════════════════════════════════════════ -->
+  <div class="page" id="page-signup">
+    <div class="auth-wrap">
+      <div class="auth-card">
+
+        <div class="auth-logo">
+          <span class="cross">✚</span>
+          <h2>Create Account</h2>
+          <p>Join MediScan AI – your personal health companion</p>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="su-fname">First Name</label>
+            <input type="text" id="su-fname" placeholder="Rohan">
+            <div class="err-msg" id="err-fname"></div>
+          </div>
+          <div class="form-group">
+            <label for="su-lname">Last Name</label>
+            <input type="text" id="su-lname" placeholder="Sharma">
+            <div class="err-msg" id="err-lname"></div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="su-email">Email Address</label>
+          <input type="email" id="su-email" placeholder="rohan@example.com">
+          <div class="err-msg" id="err-su-email"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="su-phone">Mobile Number</label>
+          <input type="tel" id="su-phone" placeholder="+91 98765 43210">
+          <div class="err-msg" id="err-phone"></div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="su-age">Age</label>
+            <input type="number" id="su-age" placeholder="25" min="1" max="120">
+          </div>
+          <div class="form-group">
+            <label for="su-gender">Gender</label>
+            <input type="text" id="su-gender" placeholder="Male / Female / Other">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="su-pass">Password</label>
+          <input type="password" id="su-pass" placeholder="Minimum 6 characters">
+          <div class="err-msg" id="err-su-pass"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="su-cpass">Confirm Password</label>
+          <input type="password" id="su-cpass" placeholder="Re-enter your password">
+          <div class="err-msg" id="err-su-cpass"></div>
+        </div>
+
+        <button class="btn-full" onclick="doSignup()">Create My Account</button>
+
+        <div class="auth-switch">
+          Already have an account? <a onclick="showPage('login')">Log In here</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       PAGE 3: LOGIN
+  ════════════════════════════════════════ -->
+  <div class="page" id="page-login">
+    <div class="auth-wrap">
+      <div class="auth-card">
+
+        <div class="auth-logo">
+          <span class="cross">✚</span>
+          <h2>Welcome Back</h2>
+          <p>Log in to your MediScan AI account</p>
+        </div>
+
+        <div class="form-group">
+          <label for="li-email">Email Address</label>
+          <input type="email" id="li-email" placeholder="rohan@example.com">
+          <div class="err-msg" id="err-li-email"></div>
+        </div>
+
+        <div class="form-group">
+          <label for="li-pass">Password</label>
+          <input type="password" id="li-pass" placeholder="Your password">
+          <div class="err-msg" id="err-li-pass"></div>
+        </div>
+
+        <div class="err-msg" id="err-login" style="margin-bottom:8px;font-size:0.9rem;"></div>
+
+        <button class="btn-full" onclick="doLogin()">Log In</button>
+
+        <div class="auth-switch">
+          New here? <a onclick="showPage('signup')">Create a free account</a>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ═══════════════════════════════════════
+       PAGE 4: DASHBOARD
+  ════════════════════════════════════════ -->
+  <div class="page" id="page-dashboard">
+    <div id="page-dashboard-inner">
+
+      <!-- Header -->
+      <div class="dash-header">
+        <div class="user-strip" id="user-strip">
+          <div class="avatar" id="user-avatar">R</div>
+          <div>
+            <h3 id="user-greet">Hello, Rohan!</h3>
+            <p id="user-info">rohan@example.com · MediScan AI Member</p>
+          </div>
+          <button class="logout-btn" onclick="logout()">Log Out</button>
+        </div>
+        <h1>Health Dashboard</h1>
+        <p>Analyze blood reports, X-ray scans, and check symptom remedies below</p>
+      </div>
+
+
+      <!-- ───────────────────────────────────────
+           ROW 1: Blood Report + Symptom Checker
+      ──────────────────────────────────────── -->
+      <div class="dash-grid">
+
+        <!-- CARD 1: BLOOD REPORT ANALYZER -->
+        <div class="dash-card">
+          <h3><span class="icon">🩸</span> Blood Report Analyzer</h3>
+
+          <div class="tab-bar">
+            <button class="tab active" onclick="switchTab('upload')">Upload Report</button>
+            <button class="tab"        onclick="switchTab('demo')">Try Demo</button>
+          </div>
+
+          <!-- Upload tab -->
+          <div id="tab-upload">
+            <div class="upload-zone">
+              <input type="file" id="report-file"
+                accept=".pdf,.jpg,.jpeg,.png,.csv,.txt"
+                onchange="handleFile(this)">
+              <span class="upload-icon">📄</span>
+              <strong>Click to Upload or Drag & Drop</strong>
+              <p>Supported: PDF, JPG, PNG, CSV, TXT &nbsp;|&nbsp; Blood Reports Only</p>
+            </div>
+            <div class="alert"  id="file-alert"></div>
+            <div class="loader" id="file-loader">
+              <div class="spinner"></div> Analyzing your blood report…
+            </div>
+          </div>
+
+          <!-- Demo tab -->
+          <div id="tab-demo" style="display:none;">
+            <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1rem;">
+              Load a sample CBC blood report to see how the analyzer works:
+            </p>
+            <button class="btn-sm" onclick="loadDemoReport()">▶ Load Sample CBC Report</button>
+          </div>
+
+          <!-- Results -->
+          <div class="report-result" id="report-result">
+            <h4>📊 Blood Report Analysis</h4>
+            <div id="report-params"></div>
+            <div id="doctor-advice" style="display:none;"></div>
+            <div class="disclaimer">
+              ⚠️ <span>For <b>informational purposes only</b>. Consult a qualified doctor before any medical decision.</span>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- CARD 2: SYMPTOM CHECKER -->
+        <div class="dash-card">
+          <h3><span class="icon">🩺</span> Symptom Checker & Home Remedies</h3>
+
+          <p style="font-size:0.85rem;color:var(--muted);margin-bottom:1rem;">
+            Tap all symptoms you are currently experiencing:
+          </p>
+
+          <div class="symptom-grid" id="symptom-grid"></div>
+
+          <div style="display:flex;gap:0.7rem;flex-wrap:wrap;margin-top:0.5rem;">
+            <button class="btn-sm"         onclick="checkSymptoms()">🔍 Suggest Home Remedies</button>
+            <button class="btn-sm outline" onclick="clearSymptoms()">✕ Clear All</button>
+          </div>
+
+          <div class="loader" id="symptom-loader">
+            <div class="spinner"></div> Fetching remedies…
+          </div>
+
+          <div class="remedy-block" id="remedy-block">
+            <div class="remedy-title" id="remedy-title"></div>
+            <div id="remedy-list"></div>
+            <div class="disclaimer">
+              ⚠️ <span>Home remedies do <b>NOT</b> replace professional medical treatment.</span>
+            </div>
+          </div>
+
+          <div class="alert" id="symptom-alert"></div>
+        </div>
+
+      </div><!-- END ROW 1 -->
+
+
+      <!-- ───────────────────────────────────────
+           ROW 2: X-RAY SCAN ANALYZER (Full Width)
+      ──────────────────────────────────────── -->
+      <div class="dash-grid-full">
+
+        <div class="dash-card xray-card">
+          <h3 style="border-bottom-color:#bfdbfe;">
+            <span class="icon">🫁</span>
+            X-Ray / CT / MRI Scan Analyzer
+          </h3>
+
+          <div class="scan-type-badge">
+            🔬 Supports: Chest X-Ray &nbsp;·&nbsp; CT Scan &nbsp;·&nbsp; MRI Report &nbsp;·&nbsp; Ultrasound
+          </div>
+
+          <!-- X-Ray Tabs -->
+          <div class="xray-tab-bar">
+            <button class="xray-tab active" onclick="switchXrayTab('xupload')">Upload Scan Report</button>
+            <button class="xray-tab"        onclick="switchXrayTab('xdemo')">Try Demo</button>
+          </div>
+
+          <!-- Upload Panel -->
+          <div id="tab-xupload">
+            <div class="xray-upload-zone">
+              <input type="file" id="xray-file"
+                accept=".pdf,.jpg,.jpeg,.png,.dcm,.txt"
+                onchange="handleXrayFile(this)">
+              <span class="upload-icon">🫁</span>
+              <strong>Click to Upload or Drag & Drop X-Ray / CT / MRI Report</strong>
+              <p>Supported: PDF, JPG, PNG, DICOM (.dcm) &nbsp;|&nbsp; Imaging Reports Only</p>
+            </div>
+            <div class="alert"  id="xray-alert"></div>
+            <div class="loader" id="xray-loader">
+              <div class="spinner"></div> AI is analyzing your scan report…
+            </div>
+          </div>
+
+          <!-- Demo Panel -->
+          <div id="tab-xdemo" style="display:none;">
+            <p style="color:var(--muted);font-size:0.88rem;margin-bottom:1rem;">
+              Load a sample Chest X-Ray report to see how AI reads findings region by region:
+            </p>
+            <div style="display:flex;gap:0.7rem;flex-wrap:wrap;">
+              <button class="btn-sm" style="background:#2563eb;" onclick="loadDemoXray()">
+                ▶ Load Abnormal X-Ray (Needs Doctor)
+              </button>
+              <button class="btn-sm" style="background:#0891b2;" onclick="loadDemoXrayNormal()">
+                ▶ Load Normal X-Ray (Healthy)
+              </button>
+            </div>
+          </div>
+
+          <!-- X-Ray Results -->
+          <div class="xray-result" id="xray-result">
+            <h4>🔬 X-Ray Scan Analysis — Region by Region</h4>
+            <div id="xray-params"></div>
+            <div class="xray-impression" id="xray-impression" style="margin-top:1rem;"></div>
+            <div id="xray-doctor" style="display:none;margin-top:1rem;"></div>
+            <div class="disclaimer" style="margin-top:1rem;">
+              ⚠️ <span>X-Ray analysis is <b>AI-assisted and for reference only</b>.
+              Always get your scans reviewed by a certified Radiologist or Doctor.</span>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- END ROW 2 -->
+
+    </div>
+  </div><!-- END page-dashboard -->
+
+
+  <!-- ═══════════════════════════════════════
+       JAVASCRIPT FILES
+  ════════════════════════════════════════ -->
+  <script src="js/navigation.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/bloodreport.js"></script>
+  <script src="js/remedies.js"></script>
+  <script src="js/symptoms.js"></script>
+  <script src="js/xray.js"></script>
+
+  <script>
+    /* X-ray tab switcher */
+    function switchXrayTab(tabName) {
+      document.querySelectorAll('.xray-tab').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+      document.getElementById('tab-xupload').style.display = tabName === 'xupload' ? '' : 'none';
+      document.getElementById('tab-xdemo').style.display   = tabName === 'xdemo'   ? '' : 'none';
+    }
+
+    /* Normal X-ray demo button */
+    function loadDemoXrayNormal() {
+      showToast('⏳ Loading sample Normal Chest X-Ray…');
+      document.getElementById('xray-loader').classList.add('active');
+      setTimeout(() => {
+        document.getElementById('xray-loader').classList.remove('active');
+        renderXrayResults('upload'); // upload = normal findings
+        showToast('✅ Normal X-Ray report loaded!');
+      }, 2000);
+    }
+  </script>
+
+</body>
+</html>
